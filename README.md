@@ -231,6 +231,8 @@ client.currencies
 
 **List exchange rates**
 
+You need to supply your OAuth2 client_id and client_secret for it to work properly. You can either set the environment variables `COINBASE_CLIENT_ID` and `COINBASE_CLIENT_SECRET` or supply `:oauth_client_id` and `:oauth_client_secret` as options.
+
 ```ruby
 client.exchange_rates
 ```
