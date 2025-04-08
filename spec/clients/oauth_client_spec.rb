@@ -35,7 +35,7 @@ describe Coinbase::Wallet::OAuthClient do
       'scope'=> 'wallet:user:read'
     }
 
-    stub_request(:post, 'https://api.coinbase.com/oauth/token')
+    stub_request(:post, 'https://api.coinbase.com/oauth2/token')
       .with(body: {
         grant_type: 'refresh_token',
         refresh_token: 'refresh_token'
