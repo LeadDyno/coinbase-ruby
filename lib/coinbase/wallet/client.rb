@@ -64,7 +64,7 @@ module Coinbase
         raise "Missing Parameter: refresh_token" unless params.has_key?(:refresh_token)
 
         out = nil
-        post("/oauth/token", params) do |resp|
+        post("/oauth2/token", params) do |resp|
           out = APIObject.new(self, resp.body)
           # Update tokens to current instance
           # Developer should always persist them
