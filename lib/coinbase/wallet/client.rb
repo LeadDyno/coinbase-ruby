@@ -1,7 +1,6 @@
 module Coinbase
   module Wallet
     BASE_API_URL  = "https://api.coinbase.com"
-    BASE_LOGIN_URL = "https://login.coinbase.com"
     API_VERSION   = '2015-06-16'
 
     class Client < NetHTTPClient
@@ -34,7 +33,7 @@ module Coinbase
         raise unless options.has_key? :access_token
         @access_token = options[:access_token]
         @refresh_token = options[:refresh_token]
-        @oauth_uri = URI.parse(options[:api_url] || BASE_LOGIN_URL)
+        @oauth_uri = URI.parse(options[:api_url] || BASE_API_URL)
         super(@oauth_uri, options)
       end
 

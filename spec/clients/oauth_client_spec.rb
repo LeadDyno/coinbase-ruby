@@ -35,7 +35,7 @@ describe Coinbase::Wallet::OAuthClient do
       'scope'=> 'wallet:user:read'
     }
 
-    stub_request(:post, 'https://login.coinbase.com/oauth2/token')
+    stub_request(:post, 'https://api.coinbase.com/oauth2/token')
       .with(body: {
         grant_type: 'refresh_token',
         refresh_token: 'refresh_token'
@@ -48,7 +48,7 @@ describe Coinbase::Wallet::OAuthClient do
   end
 
   it '#revoke!' do
-    stub_request(:post, "https://login.coinbase.com/oauth/revoke")
+    stub_request(:post, "https://api.coinbase.com/oauth/revoke")
       .with(body: { token: 'access_token' })
       .to_return(body: mock_item.to_json)
     expect(client.revoke!).to eq mock_item
